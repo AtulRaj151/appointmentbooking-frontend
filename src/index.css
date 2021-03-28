@@ -1,13 +1,105 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e5e5e5;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.auth-container {
+  position: relative;
+  width: 587px;
+  height: 543px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 31px;
+}
+.input-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
+  height: 63%;
+  align-items: center;
+  top: 16%;
+}
+
+.input-field {
+  width: 482px;
+  height: 81px;
+  left: 479px;
+  top: 364px;
+  background: #edebeb;
+  border-radius: 10px;
+  font-family: Roboto;
+  border: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  outline: none;
+  color: rgba(10, 10, 10, 0.8);
+}
+
+.btn-submit {
+  position: relative;
+  width: 205px;
+  height: 57px;
+  left: 50%;
+  top: 68%;
+  background: #47ddcb;
+  border-radius: 10px;
+  transform: translate(-50%, 50%);
+  outline: none;
+}
+.btn-txt {
+  width: 126px;
+  height: 42px;
+  left: 657px;
+  top: 700px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: #ffffff;
+}
+.auth-header {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  right: auto;
+  top: -2%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+}
+::placeholder {
+  width: 100px;
+  height: 28px;
+  left: 10%;
+  top: 390px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: rgba(0, 0, 0, 0.6);
 }
