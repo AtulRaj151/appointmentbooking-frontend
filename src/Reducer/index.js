@@ -1,10 +1,7 @@
-let initialState = {
-  bookings: [],
-};
-
-export default function appointments(state = initialState, action) {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
+import { combineReducers } from "redux";
+import booking from "./booking";
+import auth from "./auth";
+export default combineReducers({
+  booking,
+  auth,
+});

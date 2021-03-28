@@ -12,10 +12,10 @@ function MyBooking(props) {
             <th colSpan="2">Time</th>
           </tr>
           <tr>
-            <td>1</td>
-            <td>12345645253</td>
-            <td>10 10 2011</td>
-            <td>10:16</td>
+            <td colSpan="1">1</td>
+            <td colSpan="2">12345645253</td>
+            <td colSpan="2">10 10 2011</td>
+            <td colSpan="2">10:16</td>
           </tr>
         </table>
       </div>
