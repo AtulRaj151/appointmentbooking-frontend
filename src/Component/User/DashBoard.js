@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import SlotCard from "./SlotCard";
 
 class DashBoard extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div className="dashboard">
+        <SlotCard />
+      </div>
+    );
   }
 }
-export default Component;
+export default DashBoard;
