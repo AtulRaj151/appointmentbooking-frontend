@@ -1,30 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class MyBooking extends Component {
-  render() {
-    return (
-      <div className="my-booking">
-        <div className="booking-info">
-          <label htmlFor="date">
-            <span>Select Date: </span>
-          </label>
-          <input
-            type="date"
-            id="start"
-            name="trip-start"
-            min="2021-01-01"
-            max="2030-12-31"
-          />
-          <label htmlFor="time">
-            <span>Select Time: </span>
-          </label>
-          <input type="time" id="time" />
-        </div>
-        <div>
-          <button className="mybooking-check-avail">Check Availability</button>
-          <button className="mybooking-book">Book</button>
-        </div>
+function MyBooking(props) {
+  return (
+    <div className="booking-wrapper">
+      <div className="list-booking">
+        <table>
+          <tr>
+            <th colSpan="1">S.No</th>
+            <th colSpan="2">Booking ID</th>
+            <th colSpan="2">Date</th>
+            <th colSpan="2">Time</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>12345645253</td>
+            <td>10 10 2011</td>
+            <td>10:16</td>
+          </tr>
+        </table>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default MyBooking;
