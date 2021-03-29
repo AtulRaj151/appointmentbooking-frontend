@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
-export default class NewBooking extends Component {
+import { connect } from "react-redux";
+import { book, check } from "../../Action/action";
+class NewBooking extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,9 +17,19 @@ export default class NewBooking extends Component {
   };
   handleCheckAvail = () => {
     // implement check availaibility
+    const { date, time } = this.state;
+    console.log(date, time, "in booking new    ");
+    if (date && time) {
+      this.props.dispatch(check(date, time));
+    }
   };
   handleBookAppointment = () => {
     // book an appointment
+    const { date, time } = this.state;
+    console.log(date, time, "in booking new    ");
+    if (date && time) {
+      this.props.dispatch(book(date, time));
+    }
   };
   render() {
     return (
@@ -62,3 +73,9 @@ export default class NewBooking extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    auth: state,
+  };
+}
+export default connect(mapStateToProps)(NewBooking);

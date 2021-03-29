@@ -1,41 +1,43 @@
 import {
-  SET_DASHBOARD_MENU,
-  SET_MYBOOKING_MENU,
-  SET_NEWBOOKING_MENU,
+  APPOINTMENT_FAILED,
+  APPOINTMENT_SUCCESS,
+  FETCH_APPOINTMENT_SUCCESS,
+  IS_NOT_AVAILABLE,
 } from "../Action/actionTypes";
 let initialState = {
   bookings: [],
-  isDashBoard: false,
-  isMyBooking: false,
-  isNewBooking: false,
   isLogout: false,
   isLoggedIn: true,
   inProgress: false,
+  isBooked: false,
+  isBookFail: false,
+  isAvailable: true,
   error: null,
 };
 
 export default function appointments(state = initialState, action) {
   switch (action.type) {
-    case SET_DASHBOARD_MENU:
+    case FETCH_APPOINTMENT_SUCCESS:
       return {
         ...state,
-        isDashBoard: action.val,
-        isMyBooking: false,
-        isNewBooking: false,
+        bookings: [...action.booking],
       };
-    case SET_MYBOOKING_MENU:
+    case APPOINTMENT_SUCCESS:
       return {
         ...state,
-        isDashBoard: false,
-        isMyBooking: action.val,
-        isNewBooking: false,
+        isBooked: true,
+        isBookFail: false,
       };
-    case SET_NEWBOOKING_MENU:
+    case APPOINTMENT_FAILED:
       return {
         ...state,
-        isDashBoard: false,
-        isMyBooking: false,
-        isNewBooking: action.val,
+        isBooked: false,
+        isBookFail: true,
+      };
+    case IS_NOT_AVAILABLE:
+      return {
+        ...state,
+        isAvailable: action.val,
       };
 
     default:

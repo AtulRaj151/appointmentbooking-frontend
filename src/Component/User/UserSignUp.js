@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 import { signup, startSingup } from "../../Action/auth";
 
 class UserSignUp extends Component {
@@ -27,6 +28,9 @@ class UserSignUp extends Component {
   render() {
     const { isLoggedin, inProgress } = this.props.auth;
     console.log(this.props);
+    if (isLoggedin) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
       <div className="user-sign-up">
         <div className="auth-container">

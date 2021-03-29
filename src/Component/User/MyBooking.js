@@ -1,26 +1,37 @@
 import React from "react";
+import { connect } from "react-redux";
 
 function MyBooking(props) {
+  const { bookings } = props.state.booking;
+  console.log("Mybooking", bookings);
   return (
     <div className="booking-wrapper">
       <div className="list-booking">
         <table>
-          <tr>
-            <th colSpan="1">S.No</th>
-            <th colSpan="2">Booking ID</th>
-            <th colSpan="2">Date</th>
-            <th colSpan="2">Time</th>
-          </tr>
-          <tr>
-            <td colSpan="1">1</td>
-            <td colSpan="2">12345645253</td>
-            <td colSpan="2">10 10 2011</td>
-            <td colSpan="2">10:16</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th colSpan="1">S.No</th>
+              <th colSpan="2">Booking ID</th>
+              <th colSpan="2">Date</th>
+              <th colSpan="2">Time</th>
+            </tr>
+            {bookings.map((booking, index) => (
+              <tr key={`row-${index}`}>
+                <td colSpan="1">{index + 1}</td>
+                <td colSpan="2">{booking._id}</td>
+                <td colSpan="2">{booking.date}</td>
+                <td colSpan="2">{booking.time}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
   );
 }
-
-export default MyBooking;
+function mapStateToProps(state) {
+  return {
+    state,
+  };
+}
+export default connect(mapStateToProps)(MyBooking);

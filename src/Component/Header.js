@@ -6,47 +6,37 @@ import {
   setMyBookingMenu,
   setNewBookingMenu,
 } from "../Action/action";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
     super(props);
   }
-  changeDashBoard = (val) => {
-    this.props.dispatch(setDashBoardMenu(val));
-  };
-  changeNewBooking = (val) => {
-    this.props.dispatch(setNewBookingMenu(val));
-  };
-  changeMyBooking = (val) => {
-    this.props.dispatch(setMyBookingMenu(val));
-  };
   render() {
     console.log(this.props.state);
     return (
       <div className="header">
-        <button
-          className="btn-header"
-          onClick={() => this.changeDashBoard(true)}
-        >
-          <span className="btn-text-header">DashBoard</span>
-        </button>
-        <button
-          className="btn-header"
-          onClick={() => {
-            this.changeMyBooking(true);
-          }}
-        >
-          <span className="btn-text-header">My Booking</span>
-        </button>
-        <button
-          className="btn-header"
-          onClick={() => this.changeNewBooking(true)}
-        >
-          <span className="btn-text-header">New Booking</span>
-        </button>
-        <button className="btn-header-logout">
-          <span className="btn-text-logout">Logout</span>
-        </button>
+        <Link to="/dashboard">
+          <button className="btn-header">
+            <span className="btn-text-header">DashBoard</span>
+          </button>
+        </Link>
+        <Link to="/mybooking">
+          <button className="btn-header">
+            <span className="btn-text-header">My Booking</span>
+          </button>
+        </Link>
+
+        <Link to="/newbooking">
+          <button className="btn-header">
+            <span className="btn-text-header">New Booking</span>
+          </button>
+        </Link>
+        <Link to="/logout">
+          <button className="btn-header-logout">
+            <span className="btn-text-logout">Logout</span>
+          </button>
+        </Link>
       </div>
     );
   }
