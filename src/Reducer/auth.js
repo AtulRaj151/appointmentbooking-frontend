@@ -14,6 +14,7 @@ const inititalState = {
   error: null,
   isLoggedin: false,
   inProgress: false,
+  isSignUpOk: false,
 };
 export default function auth(state = inititalState, action) {
   switch (action.type) {
@@ -30,14 +31,21 @@ export default function auth(state = inititalState, action) {
     case SIGNUP_SUCCESS:
       return {
         ...state,
-        isLoggedin: true,
+        isLoggedin: false,
+        isSignUpOk: true,
         error: null,
       };
     case SIGNUP_FAILED:
       return {
         ...state,
         inProgress: false,
+        isSignUpOk: false,
         error: action.error,
+      };
+    case "SIGNUP_FINISH":
+      return {
+        ...state,
+        isSignUpOk: false,
       };
     case LOG_OUT:
       return {

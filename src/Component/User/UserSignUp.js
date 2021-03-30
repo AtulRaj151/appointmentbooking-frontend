@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
-import { signup, startSingup } from "../../Action/auth";
+import { finishSignUp, signup, startSingup } from "../../Action/auth";
 
 class UserSignUp extends Component {
   constructor(props) {
@@ -24,13 +24,14 @@ class UserSignUp extends Component {
     if (name && email && password) {
       this.props.dispatch(startSingup());
       this.props.dispatch(signup(email, password, name));
+      this.props.dispatch(finishSignUp());
     }
   };
   render() {
-    const { isLoggedin, inProgress } = this.props.auth;
+    const { isLoggedin, inProgress, isSignUpOk } = this.props.auth;
     console.log(this.props);
-    if (isLoggedin) {
-      return <Redirect to="/dashboard" />;
+    if (isSignUpOk) {
+      return <Redirect to="/login" />;
     }
     return (
       <div className="user-sign-up">
@@ -62,14 +63,14 @@ class UserSignUp extends Component {
           <button
             className="btn-submit"
             onClick={() => this.handleSignUp()}
-            disabled={inProgress}
+            // disabled={inProgress}
           >
             <span className="btn-txt">Sign In</span>
           </button>
         </div>
         <div className="auth-option">
           <p> have a user account? </p>
-          <Link to="/signup">
+          <Link to="/logingit">
             <span style={{ color: "blue", cursor: "pointer" }}>
               Sign In Now
             </span>

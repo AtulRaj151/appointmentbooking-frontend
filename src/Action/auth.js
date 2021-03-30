@@ -9,6 +9,7 @@ import {
 } from "./actionTypes";
 
 import { getAuthTokenfromLocalStorage, getFormBody } from "../Helper/utils";
+import jwtDecode from "jwt-decode";
 
 // signup
 export function signup(email, password, name) {
@@ -59,6 +60,12 @@ export function signupSuccessful(user) {
     user,
   };
 }
+export function finishSignUp(user) {
+  return {
+    type: "SIGNUP_FINISH",
+    user,
+  };
+}
 
 export function login(email, password) {
   return (dispatch) => {
@@ -79,6 +86,8 @@ export function login(email, password) {
           //dispatch action to save user
 
           localStorage.setItem("token", data.token);
+          let user = jwtDecode(data.token);
+          dispatch(loginSuccess(user));
           return;
         }
         dispatch(loginFailed(data.message));

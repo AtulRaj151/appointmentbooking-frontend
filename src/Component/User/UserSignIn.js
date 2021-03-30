@@ -17,11 +17,16 @@ class UserSignIn extends Component {
       [field]: value,
     });
   };
-  handleFormSubmit = (e) => {
+  handleFormSubmit = async (e) => {
     const { email, password } = this.state;
 
     if (email && password) {
-      this.props.dispatch(login(email, password));
+      await this.props.dispatch(login(email, password));
+      console.log(this.props.state.auth, "in sign in user");
+      this.setState({
+        user: "",
+        password: "",
+      });
     }
   };
 
@@ -32,6 +37,7 @@ class UserSignIn extends Component {
     }
     return (
       <div className="usersignin">
+        {isLoggedin && <Redirect to="/dashboard" />}
         <div className="auth-container">
           <div className="auth-header">Sign In</div>
           <div className="input-container" style={{ height: "48%" }}>

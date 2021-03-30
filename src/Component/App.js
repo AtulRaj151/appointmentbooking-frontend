@@ -80,9 +80,10 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={() => {
-                return isLoggedin ? <DashBoard /> : <Redirect to="/login" />;
-              }}
+              // render={() => {
+              //   return isLoggedin ? <DashBoard /> : <Redirect to="/login" />;
+              // }}=
+              component={UserSignIn}
             />
             <Route path="/signup" component={UserSignUp} />
             <Route path="/login" component={UserSignIn} />
