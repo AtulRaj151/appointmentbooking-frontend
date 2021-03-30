@@ -39,6 +39,12 @@ export default function auth(state = inititalState, action) {
         inProgress: false,
         error: action.error,
       };
+    case LOG_OUT:
+      return {
+        ...state,
+        user: {},
+        isLoggedin: false,
+      };
     case AUTHENTICATE_USER:
       return {
         ...state,

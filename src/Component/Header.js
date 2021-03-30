@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import "../Static/Css/Header.css";
 import { connect } from "react-redux";
-import {
-  setDashBoardMenu,
-  setMyBookingMenu,
-  setNewBookingMenu,
-} from "../Action/action";
+import { logoutUser } from "../Action/action";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
     super(props);
   }
+  handleLogout = () => {
+    localStorage.removeItem("token");
+    // console.log(localStorage.getItem("token"));
+    this.props.dispatch(logoutUser());
+  };
   render() {
     console.log(this.props.state);
     return (
@@ -32,11 +33,13 @@ class Header extends Component {
             <span className="btn-text-header">New Booking</span>
           </button>
         </Link>
-        <Link to="/logout">
-          <button className="btn-header-logout">
-            <span className="btn-text-logout">Logout</span>
-          </button>
-        </Link>
+
+        <button
+          className="btn-header-logout"
+          onClick={() => this.handleLogout()}
+        >
+          <span className="btn-text-logout">Logout</span>
+        </button>
       </div>
     );
   }

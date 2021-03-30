@@ -17,7 +17,7 @@ code {
   position: relative;
   width: 587px;
   height: 543px;
-  margin-top: -8%;
+  margin-top: -3%;
   left: 50%;
   transform: translate(-50%, 50%);
   background: #ffffff;
@@ -108,11 +108,8 @@ code {
 /* slots cards */
 
 .slot-card {
-  position: absolute;
   width: 222px;
   height: 56px;
-  left: 165px;
-  top: 307px;
   text-align: center;
   background: #ebebeb;
   border: 1px solid #47ddcb;
@@ -246,4 +243,31 @@ th {
   height: 100vh;
   width: 100vw;
   background-color: #ffffff;
+}
+
+/* dashboard */
+.dash-header {
+  margin-top: 16vh;
+  margin-left: 10vw;
+}
+
+.slotcard-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 74vw;
+  height: auto;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.auth-option {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  top: 76%;
+}
+.auth-option > p {
+  display: inline-block;
 }

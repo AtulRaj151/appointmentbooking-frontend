@@ -4,8 +4,14 @@ import {
   APPOINTMENT_SUCCESS,
   APPOINTMENT_FAILED,
   IS_NOT_AVAILABLE,
+  LOG_OUT,
 } from "./actionTypes";
 
+export function logoutUser() {
+  return {
+    type: LOG_OUT,
+  };
+}
 export function fetchUserAppointments() {
   return function (dispatch) {
     const url = "http://localhost:8001/api/v1/user/mybooking";

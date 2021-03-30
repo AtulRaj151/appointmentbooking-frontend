@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 import { signup, startSingup } from "../../Action/auth";
 
 class UserSignUp extends Component {
@@ -65,6 +66,21 @@ class UserSignUp extends Component {
           >
             <span className="btn-txt">Sign In</span>
           </button>
+        </div>
+        <div className="auth-option">
+          <p> have a user account? </p>
+          <Link to="/signup">
+            <span style={{ color: "blue", cursor: "pointer" }}>
+              Sign In Now
+            </span>
+          </Link>
+          <br />
+          <p>Go to</p>{" "}
+          <Link to="/admin/signup">
+            <span style={{ color: "blue", cursor: "pointer" }}>
+              Admin Sign Up
+            </span>
+          </Link>
         </div>
       </div>
     );
