@@ -65,12 +65,12 @@ class UserSignUp extends Component {
             onClick={() => this.handleSignUp()}
             // disabled={inProgress}
           >
-            <span className="btn-txt">Sign In</span>
+            <span className="btn-txt">Sign Up</span>
           </button>
         </div>
         <div className="auth-option">
           <p> have a user account? </p>
-          <Link to="/logingit">
+          <Link to="/login">
             <span style={{ color: "blue", cursor: "pointer" }}>
               Sign In Now
             </span>
